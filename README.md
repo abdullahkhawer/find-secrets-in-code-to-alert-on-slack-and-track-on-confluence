@@ -13,13 +13,20 @@ This repository has a Python script and a Shell script. The Shell script can be 
 Following are the prerequisites to be met before you begin:
 
 - Following libraries are installed on your system:
+   - `git`
    - `jq`
-   - `docker`
    - `pip`
-   - `python`
+   - `python3`
+   - `make`
+   - `wget`
+   - `golang`
 - Following Python library is installed using `pip`:
    - `atlassian-python-api`
-- Following environment variables related to confluence are set:
+- Following environment variables are set:
+   - `GITLEAKS_VERSION`
+      - Example: `v8.18.2`
+   - `PATH_TO_GIT_REPO`
+      - Example: `/Users/Abdullah.Khawer/Desktop//myrepo`
    - `CONFLUENCE_SITE`
       - Example: `https://mydomain.atlassian.net`
    - `CONFLUENCE_USER_EMAIL_ID`
