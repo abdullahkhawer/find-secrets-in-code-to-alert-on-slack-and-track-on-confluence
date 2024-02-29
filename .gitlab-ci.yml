@@ -1,5 +1,4 @@
 find_secrets_in_code_to_alert_on_slack_and_track_on_confluence:
-  stage: cron
   variables:
     SECRETS_ANALYZER_VERSION: "5.1.14"
   before_script:
