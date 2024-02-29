@@ -1,13 +1,11 @@
 find_secrets_in_code_to_alert_on_slack_and_track_on_confluence:
   stage: test
+  image: ubuntu:22.04
   variables:
     GIT_DEPTH: 1
-    GITLEAKS_VERSION: "v8.18.2"
     PATH_TO_GIT_REPO: "./"
-    CONFLUENCE_SITE: "https://mendix.atlassian.net"
-    CONFLUENCE_PAGE_TITLE: "Review Secrets Detected in appdev Mono Repo"
-    CONFLUENCE_PAGE_SPACE: "DPT"
   before_script:
+    - apt-get update && apt install -y git
     - git fetch origin ${CI_DEFAULT_BRANCH}
   only:
     - master

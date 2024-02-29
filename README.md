@@ -10,23 +10,34 @@ This repository has a Python script and a Shell script. The Shell script can be 
 
 ### Prerequisites
 
-Following are the prerequisites to be met before you begin:
+Following are the prerequisites to be met once before you begin:
 
-- Following libraries are installed on your system:
-   - `git`
-   - `jq`
-   - `pip`
-   - `python3`
-   - `make`
-   - `wget`
-   - `golang`
-- Following Python library is installed using `pip`:
-   - `atlassian-python-api`
-- Following environment variables are set:
-   - `GITLEAKS_VERSION`
-      - Example: `v8.18.2`
+- Following packages are installed on your system:
+   - In case of Linux, install the following packages using either `./installation/linux_install_packages.sh` script or manually:
+      - `git`
+      - `jq`
+      - `python3-pip`
+      - `python3`
+      - `make`
+      - `wget`
+      - `golang`
+      - `gitleaks`
+      - `atlassian-python-api`
+         - Using `pip`
+   - In case of macOS, install the following packages using either `./installation/macos_install_packages.sh` script or manually:
+      - `git`
+      - `jq`
+      - `python`
+      - `python@3`
+      - `gitleaks`
+      - `atlassian-python-api`
+         - Using `pip`
+
+### Execution Instructions
+
+Once all the prerequisites are met, set the following environment variables:
    - `PATH_TO_GIT_REPO`
-      - Example: `/Users/Abdullah.Khawer/Desktop//myrepo`
+      - Example: `/Users/Abdullah.Khawer/Desktop/myrepo`
    - `CONFLUENCE_SITE`
       - Example: `https://mydomain.atlassian.net`
    - `CONFLUENCE_USER_EMAIL_ID`
@@ -38,11 +49,23 @@ Following are the prerequisites to be met before you begin:
    - `CONFLUENCE_PAGE_SPACE`
       - Example: `docs`
 
-### Execution Instructions
-
-Once all the prerequisites are met, simply run the following 2 commands in the correct order:
+And then simply run the following 2 commands in the correct order:
 - `bash gitleaks.sh`
 - `python3.10 main.py [BRANCH NAME]`
    - Example: `python main.py master`
+
+*Note: A sample Gitleaks configuration file can be found here if interested in using it: `.gitleaks.toml`*
+
+### References
+
+A list of useful references can be found below:
+- https://gitleaks.io/index.html
+- https://docs.gitlab.com/ee/user/application_security/secret_detection/
+- https://github.com/gitleaks/gitleaks#configuration
+- https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
+- https://docs.python.org/3/
+- https://atlassian-python-api.readthedocs.io/
+- https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html
+- https://docs.gitlab.com/ee/ci/
 
 ##### Any contributions, improvements and suggestions will be highly appreciated. 😊
