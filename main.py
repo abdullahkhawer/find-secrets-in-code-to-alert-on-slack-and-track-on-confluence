@@ -75,6 +75,10 @@ conf = Confluence(url=conf_site, username=conf_user, password=conf_pass)
 # resolve page ID
 page_id = conf.get_page_id(page_space, page_title)
 
+# get current page content
+page = conf.get_page_by_id(page_id, expand='body.storage')
+page_content = page['body']['storage']['value']
+
 # read JSON from file
 with open("./gitleaks-report.json", "r") as file:
    data = json.load(file)
@@ -88,10 +92,6 @@ for entry in data:
    rows += row_template.format(rows_count, fingerprint, description)
    rows_count = rows_count + 1
 html_template = html_template.format(branch_name, len(data), rows)
-
-# get current page content
-page = conf.get_page_by_id(page_id, expand='body.storage')
-page_content = page['body']['storage']['value']
 
 # define the pattern to replace the respective div
 pattern = r'<h2>Branch: {}.*?</table>'.format(branch_name)
